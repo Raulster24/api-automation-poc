@@ -20,4 +20,8 @@ buildNumber.properties
 .idea/libraries
 .idea
 
+
+#allure results
+/allure-results
+
 .DS_Store
