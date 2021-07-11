@@ -19,3 +19,9 @@ buildNumber.properties
 .idea/workspace.xml
 .idea/libraries
 .idea
+
+
+#allure results
+/allure-results
+
+.DS_Store
