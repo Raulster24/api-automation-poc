@@ -14,5 +14,11 @@ public abstract class Given<T extends Given<T>> extends Base<T> {
 
     }
 
+    public static void GivenIHaveAValidPayload(String createDoctorStringPayload)
+    {
+        requestBodyAsString = createDoctorStringPayload;
+
+    }
+
         protected abstract T getThis();
     }

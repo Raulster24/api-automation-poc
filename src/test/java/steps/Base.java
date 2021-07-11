@@ -7,6 +7,7 @@ import io.restassured.response.ResponseOptions;
 public abstract class Base <T extends Base<T>> {
 
     public static Object requestBody;
+    public static String requestBodyAsString;
     public static ResponseOptions<Response> responseObject;
     public static String accessToken;
 
