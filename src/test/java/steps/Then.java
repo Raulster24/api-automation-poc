@@ -15,4 +15,10 @@ public abstract class Then<T extends Then<T>> extends When<T>{
         Assertions.assertEquals(responseObject.getStatusCode(), 200);
         Assertions.assertNotNull(responseObject, "The Response Object is null");
     }
+
+    public static void ThenItShouldThrowBadRequestStatusCode() {
+        Assertions.assertEquals(responseObject.getStatusCode(), 400);
+        Assertions.assertNotNull(responseObject, "The Response Object is null");
+    }
+
 }

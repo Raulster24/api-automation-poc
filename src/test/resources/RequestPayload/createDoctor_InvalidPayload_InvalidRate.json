@@ -1,0 +1,247 @@
+{
+  "id": 176,
+  "firstName": "rahul",
+  "middleName": null,
+  "lastName": "Srivastava",
+  "dateOfBirth": "1987-02-17T00:00:00Z",
+  "gender": "MALE",
+  "email": "neoraul24@gmail.com",
+  "phone": "1776777766",
+  "address": null,
+  "rate": null,
+  "halfRate": 100,
+  "bio": null,
+  "userId": 401,
+  "education": "mbbs",
+  "picture": null,
+  "startTime": null,
+  "endTime": null,
+  "experience": 12,
+  "languages": [
+    {
+      "name": "English"
+    },
+    {
+      "name": "Turkish"
+    }
+  ],
+  "countryId": 228,
+  "countryName": "United Arab Emirates",
+  "certificates": "md",
+  "awards": "",
+  "doctors": null,
+  "specialities": [
+    {
+      "id": 25,
+      "name": "Endocrinology",
+      "keywordss": [
+        {
+          "id": 897,
+          "name": "Diabetes",
+          "specialities": {
+            "id": 25,
+            "name": "Endocrinology"
+          }
+        },
+        {
+          "id": 898,
+          "name": "Type 1 diabetes",
+          "specialities": {
+            "id": 25,
+            "name": "Endocrinology"
+          }
+        },
+        {
+          "id": 899,
+          "name": "Type 2 diabetes",
+          "specialities": {
+            "id": 25,
+            "name": "Endocrinology"
+          }
+        },
+        {
+          "id": 900,
+          "name": "Gestational diabetes",
+          "specialities": {
+            "id": 25,
+            "name": "Endocrinology"
+          }
+        },
+        {
+          "id": 901,
+          "name": "Thyroid",
+          "specialities": {
+            "id": 25,
+            "name": "Endocrinology"
+          }
+        },
+        {
+          "id": 902,
+          "name": "Amenorrhea",
+          "specialities": {
+            "id": 25,
+            "name": "Endocrinology"
+          }
+        },
+        {
+          "id": 903,
+          "name": "Parathyroid Disease",
+          "specialities": {
+            "id": 25,
+            "name": "Endocrinology"
+          }
+        },
+        {
+          "id": 904,
+          "name": "Hypercalcemia/Hypocalcemia",
+          "specialities": {
+            "id": 25,
+            "name": "Endocrinology"
+          }
+        },
+        {
+          "id": 905,
+          "name": "Disorder of adrenal gland",
+          "specialities": {
+            "id": 25,
+            "name": "Endocrinology"
+          }
+        },
+        {
+          "id": 906,
+          "name": "Adrenal fatigue",
+          "specialities": {
+            "id": 25,
+            "name": "Endocrinology"
+          }
+        },
+        {
+          "id": 907,
+          "name": "Osteoporosis",
+          "specialities": {
+            "id": 25,
+            "name": "Endocrinology"
+          }
+        },
+        {
+          "id": 908,
+          "name": "Pituitary disease",
+          "specialities": {
+            "id": 25,
+            "name": "Endocrinology"
+          }
+        },
+        {
+          "id": 909,
+          "name": "Hormone imbalance",
+          "specialities": {
+            "id": 25,
+            "name": "Endocrinology"
+          }
+        },
+        {
+          "id": 910,
+          "name": "Goiter",
+          "specialities": {
+            "id": 25,
+            "name": "Endocrinology"
+          }
+        },
+        {
+          "id": 911,
+          "name": "Obesity",
+          "specialities": {
+            "id": 25,
+            "name": "Endocrinology"
+          }
+        },
+        {
+          "id": 912,
+          "name": "Lipid disorders",
+          "specialities": {
+            "id": 25,
+            "name": "Endocrinology"
+          }
+        },
+        {
+          "id": 913,
+          "name": "Menopause",
+          "specialities": {
+            "id": 25,
+            "name": "Endocrinology"
+          }
+        },
+        {
+          "id": 914,
+          "name": "Premenstrual syndrome (PMS)",
+          "specialities": {
+            "id": 25,
+            "name": "Endocrinology"
+          }
+        },
+        {
+          "id": 915,
+          "name": "Infertility",
+          "specialities": {
+            "id": 25,
+            "name": "Endocrinology"
+          }
+        },
+        {
+          "id": 916,
+          "name": "Pituitary hormone disturbances",
+          "specialities": {
+            "id": 25,
+            "name": "Endocrinology"
+          }
+        },
+        {
+          "id": 917,
+          "name": "Hypothyroidism/ Hyperthyroidism",
+          "specialities": {
+            "id": 25,
+            "name": "Endocrinology"
+          }
+        },
+        {
+          "id": 918,
+          "name": "Vitamin deficiency",
+          "specialities": {
+            "id": 25,
+            "name": "Endocrinology"
+          }
+        },
+        {
+          "id": 919,
+          "name": "Paget’s disease",
+          "specialities": {
+            "id": 25,
+            "name": "Endocrinology"
+          }
+        },
+        {
+          "id": 920,
+          "name": "Osteomalacia",
+          "specialities": {
+            "id": 25,
+            "name": "Endocrinology"
+          }
+        },
+        {
+          "id": 921,
+          "name": "Bone loss",
+          "specialities": {
+            "id": 25,
+            "name": "Endocrinology"
+          }
+        }
+      ]
+    }
+  ],
+  "likeId": null,
+  "doctorTimeZone": "Asia/Dubai",
+  "createTime": "2021-07-06T10:41:02Z",
+  "updateTime": "2021-07-06T10:47:28.461197Z",
+  "activated": true,
+  "liked": null
+}

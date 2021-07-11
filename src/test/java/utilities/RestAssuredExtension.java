@@ -1,6 +1,7 @@
 package utilities;
 
 import io.restassured.RestAssured;
+import io.restassured.authentication.PreemptiveAuthProvider;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -35,5 +36,14 @@ public class RestAssuredExtension {
         RequestSpecification request = RestAssured.given();
         request.spec(requestSpecification);
         return request.log().all().get(this.baseUrl);
+    }
+
+    public ResponseOptions<Response> ExecuteUpdateRequestWithPayload(String Payload) {
+        builder.addHeader("Accept", ContentType.JSON.getAcceptHeader());
+        builder.addMultiPart("profileData", Payload);
+        RequestSpecification requestSpecification = builder.build();
+        RequestSpecification request = RestAssured.given();
+        request.spec(requestSpecification);
+        return request.log().all().put(this.baseUrl);
     }
 }
