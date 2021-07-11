@@ -92,9 +92,8 @@
                     <installDirectory>${project.build.directory}</installDirectory>
                     <allureDownloadUrl>
                         https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.10.0/allure-commandline-2.10.0.zip </allureDownloadUrl>
-                    <systemPropertyVariables>
-                            allure.results.directory=target/allure-results
-                    </systemPropertyVariables>
+                    <resultsDirectory>${project.basedir}/allure-results/</resultsDirectory>
+                    <reportDirectory>${project.basedir}/target/allure-reports/</reportDirectory>
                 </configuration>
             </plugin>
         </plugins>
