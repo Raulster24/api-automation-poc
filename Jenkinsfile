@@ -11,7 +11,6 @@ pipeline {
         slackSend(channel: 'jenkins-build-status', color: 'good', message: "The pipeline healthyuae-api-automation ${GIT_BRANCH} branch commit ${GIT_COMMIT} has started.", notifyCommitters: true, teamDomain: 'g42-healthcare', tokenCredentialId: 'slack-login', username: 'Jenkins')
 
         sh 'echo $JAVA_HOME'
-        sh 'echo $M2_HOME'
         
         withMaven(jdk: 'JDK 9', maven: 'maven 3.8.2') {
           sh 'mvn clean install test'
