@@ -6,8 +6,11 @@ pipeline {
         branch 'main'
       }
       steps {
-        echo 'Building Project for API'
+        echo 'Running API automation tests'
+        
         slackSend(channel: 'jenkins-build-status', color: 'good', message: "The pipeline healthyuae-api-automation ${GIT_BRANCH} branch commit ${GIT_COMMIT} has started.", notifyCommitters: true, teamDomain: 'g42-healthcare', tokenCredentialId: 'slack-login', username: 'Jenkins')
+
+        sh 'mvn clean install test'
       }
     }
   }
