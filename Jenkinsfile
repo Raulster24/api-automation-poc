@@ -13,7 +13,7 @@ pipeline {
         sh 'echo $JAVA_HOME'
         sh 'echo $M2_HOME'
         sh 'echo $PATH'
-        withMaven {
+        withMaven(jdk: 'JDK 9', maven: 'maven 3.8.2') {
           sh 'mvn clean install test'
         }
       }
