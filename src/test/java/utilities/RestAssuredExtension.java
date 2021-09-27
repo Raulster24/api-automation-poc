@@ -23,7 +23,18 @@ public class RestAssuredExtension {
         }
     }
 
-   public ResponseOptions<Response> ExecutePostRequest() {
+    public ResponseOptions<Response> ExecutePostRequest() {
+        builder.addHeader("Accept", ContentType.JSON.getAcceptHeader());
+        RequestSpecification requestSpecification = builder.build();
+        RequestSpecification request = RestAssured.given();
+        request.spec(requestSpecification);
+        return request.post(this.baseUrl);
+    }
+
+   public ResponseOptions<Response> ExecutePostRequest(Object Payload) {
+        builder.addHeader("Accept", ContentType.JSON.getAcceptHeader());
+        builder.setBody(Payload);
+        builder.setContentType(ContentType.JSON);
         RequestSpecification requestSpecification = builder.build();
         RequestSpecification request = RestAssured.given();
         request.spec(requestSpecification);

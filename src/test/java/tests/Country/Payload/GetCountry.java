@@ -8,8 +8,7 @@ import org.junit.jupiter.api.TestInstance;
 import utilities.GenerateAuthToken;
 
 import static steps.Base.*;
-import static steps.Then.*;
-import static steps.When.*;
+import static steps.Country.Then.*;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class GetCountry {

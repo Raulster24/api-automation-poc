@@ -12,9 +12,9 @@ import utilities.GenerateAuthToken;
 import java.util.stream.Stream;
 
 import static steps.Base.accessToken;
-import static steps.Given.GivenIHaveAValidPayload;
-import static steps.Then.ThenItShouldThrowBadRequestStatusCode;
-import static steps.When.WhenICallUpdateDoctorEndPoint;
+import static steps.Country.Given.GivenIHaveAValidPayload;
+import static steps.Country.Then.ThenItShouldThrowBadRequestStatusCode;
+import static steps.Country.When.WhenICallUpdateDoctorEndPoint;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class UpdateDoctor {
@@ -33,7 +33,6 @@ public class UpdateDoctor {
         WhenICallUpdateDoctorEndPoint("api/admin/doctors");
         ThenItShouldThrowBadRequestStatusCode();
     }
-
 
     private static Stream<Arguments> UpdateDoctorInvalidPayload() {
         return Stream.of(Arguments.of(UpdateDoctorInvalidPayload.CREATE_DOCTOR_INVALID_RATE),

@@ -1,12 +1,9 @@
-package steps;
+package steps.Country;
 
-import io.restassured.RestAssured;
-import io.restassured.response.Response;
-import utilities.GenerateAuthToken;
 import utilities.RestAssuredExtension;
 
 
-public abstract class When<T extends When<T>> extends Given<T>{
+public abstract class When<T extends When<T>> extends Given<T> {
 
 
     public static void WhenICallTheCreateCountryEndPoint(String endpoint) {

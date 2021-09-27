@@ -11,9 +11,9 @@ import utilities.GenerateAuthToken;
 
 import java.util.stream.Stream;
 import static provider.Country.ByCountry.createRequestByCountryNameAndCode;
-import static steps.Given.*;
-import static steps.Then.ThenCountryShouldBeCreatedSuccessfully;
-import static steps.When.WhenICallTheCreateCountryEndPoint;
+import static steps.Country.Given.*;
+import static steps.Country.Then.ThenCountryShouldBeCreatedSuccessfully;
+import static steps.Country.When.WhenICallTheCreateCountryEndPoint;
 
 @TestInstance(Lifecycle.PER_CLASS)
 public class CreateCountry {
