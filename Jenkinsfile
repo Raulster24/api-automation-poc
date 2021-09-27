@@ -1,5 +1,10 @@
 pipeline {
-  agent any
+  agent {
+    docker {
+      image 'maven:3-alpine'
+      args '-v /root/.m2:/root/.m2'
+    }
+  }
   stages {
     stage('Test') {
       when {
@@ -12,9 +17,11 @@ pipeline {
 
         sh 'echo $JAVA_HOME'
         
-        withMaven(jdk: 'JDK 9', maven: 'maven 3.8.2') {
-          sh 'mvn clean install test'
-        }
+        // withMaven(jdk: 'JDK 9', maven: 'maven 3.8.2') {
+        //   sh 'mvn clean install test'
+        // }
+
+        sh 'mvn clean install test'
       }
     }
   }
