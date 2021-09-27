@@ -13,7 +13,9 @@ pipeline {
         sh 'echo $JAVA_HOME'
         sh 'echo $M2_HOME'
         sh 'echo $PATH'
-        sh 'mvn clean install test'
+        withMaven {
+          sh 'mvn clean install test'
+        }
       }
     }
   }
