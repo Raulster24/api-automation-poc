@@ -1,10 +1,5 @@
 pipeline {
-  agent {
-    docker {
-      image 'maven:3-alpine'
-      args '-v /root/.m2:/root/.m2'
-    }
-  }
+  agent any
   stages {
     stage('Test') {
       when {
@@ -15,13 +10,13 @@ pipeline {
         
         slackSend(channel: 'jenkins-build-status', color: 'good', message: "The pipeline healthyuae-api-automation ${GIT_BRANCH} branch commit ${GIT_COMMIT} has started.", notifyCommitters: true, teamDomain: 'g42-healthcare', tokenCredentialId: 'slack-login', username: 'Jenkins')
 
-        // sh 'echo $JAVA_HOME'
-        
-        // withMaven(jdk: 'JDK 9', maven: 'maven 3.8.2') {
-        //   sh 'mvn clean install test'
-        // }
+        sh 'echo $JAVA_HOME'
 
-        sh 'mvn clean install test'
+        sh 'echo $MAVEN_HOME'
+        
+        withMaven(jdk: 'JDK 9.0.4', maven: 'maven 3.8.2') {
+          sh 'mvn clean install test'
+        }
       }
     }
   }
