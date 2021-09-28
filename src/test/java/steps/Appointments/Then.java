@@ -10,4 +10,9 @@ public abstract class Then<T extends steps.Country.Then<T>> extends When<T> {
         Assertions.assertNotNull(responseObject, "The Response Object is null");
 
     }
+
+    public static void ThenItShouldThrowBadRequestStatusCode() {
+        Assertions.assertEquals(responseObject.getStatusCode(), 400);
+        Assertions.assertNotNull(responseObject, "The Response Object is null");
+    }
 }

@@ -7,13 +7,12 @@ import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
-import org.junit.jupiter.params.provider.MethodSource;
 import utilities.GenerateAuthToken;
 
 import static provider.Appointment.ByAppointmentStatus.createRequestByAppointmentStatus;
 import static steps.Appointments.Given.*;
-import static steps.Appointments.Then.ThenAppointmentShouldBeCreatedSuccessfully;
-import static steps.Appointments.When.WhenICallTheCreateAppointmentEndPoint;
+import static steps.Appointments.Then.*;
+import static steps.Appointments.When.*;
 
 @TestInstance(Lifecycle.PER_CLASS)
 public class CreateAppointment {
@@ -31,5 +30,14 @@ public class CreateAppointment {
         GivenIHaveAValidPayloadToCreateAppointment(createRequestByAppointmentStatus, statusType);
         WhenICallTheCreateAppointmentEndPoint("api/appointments");
         ThenAppointmentShouldBeCreatedSuccessfully();
+    }
+
+    @ParameterizedTest
+    @EnumSource(names = {"PENDING"})
+    @DisplayName("Create Appointment Test Cases")
+    void shouldGiveBadRequestWithInvalidValues(AppointmentStatusEnum statusType) {
+        GivenIHaveAValidPayloadToCreateAppointment(createRequestByAppointmentStatus, statusType);
+        WhenICallTheCreateAppointmentEndPoint("api/appointments");
+        ThenItShouldThrowBadRequestStatusCode();
     }
 }
