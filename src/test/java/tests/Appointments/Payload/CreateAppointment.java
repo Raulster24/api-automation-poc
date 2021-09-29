@@ -33,7 +33,7 @@ public class CreateAppointment {
     }
 
     @ParameterizedTest
-    @EnumSource(names = {"PENDING", "UNAVAILABLE"})
+    @EnumSource(names = {"ACCEPTED","PENDING", "UNAVAILABLE"})
     @DisplayName("Create Appointment Test Cases")
     void shouldGiveBadRequestWithNotAcceptedStatusType(AppointmentStatusEnum statusType) {
         GivenIHaveAValidPayloadToCreateAppointment(createRequestByAppointmentStatus, statusType);
