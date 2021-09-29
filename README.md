@@ -8,6 +8,8 @@ API test automation repository for HealthyU project
 git clone
 mvn clean install
 mvn test
+mvn allure:serve
+
 ```
 
 ## Libraries and Plugins
