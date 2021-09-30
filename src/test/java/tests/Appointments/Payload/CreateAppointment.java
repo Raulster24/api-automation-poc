@@ -24,7 +24,7 @@ public class CreateAppointment {
     }
 
     @ParameterizedTest
-    @EnumSource(names = {"AVAILABLE"})
+    @EnumSource(value = AppointmentStatusEnum.class, names = {"AVAILABLE"})
     @DisplayName("Create Appointment Test Cases")
     void shouldGiveSuccessWithValidValues(AppointmentStatusEnum statusType) {
         GivenIHaveAValidPayloadToCreateAppointment(createRequestByAppointmentStatus, statusType);
@@ -33,7 +33,7 @@ public class CreateAppointment {
     }
 
     @ParameterizedTest
-    @EnumSource(names = {"ACCEPTED","PENDING", "UNAVAILABLE"})
+    @EnumSource(value = AppointmentStatusEnum.class, names = {"ACCEPTED","PENDING", "UNAVAILABLE"})
     @DisplayName("Create Appointment Test Cases")
     void shouldGiveBadRequestWithNotAcceptedStatusType(AppointmentStatusEnum statusType) {
         GivenIHaveAValidPayloadToCreateAppointment(createRequestByAppointmentStatus, statusType);
@@ -42,7 +42,7 @@ public class CreateAppointment {
     }
 
     @ParameterizedTest
-    @EnumSource(names = {"CANCELLED_BY_PATIENT", "CANCELLED_BY_DOCTOR"})
+    @EnumSource(value = AppointmentStatusEnum.class, names = {"CANCELLED_BY_PATIENT", "CANCELLED_BY_DOCTOR", "REJECTED"})
     @DisplayName("Create Appointment Test Cases")
     void shouldGiveErrorWithInvalidValues(AppointmentStatusEnum statusType) {
         GivenIHaveAValidPayloadToCreateAppointment(createRequestByAppointmentStatus, statusType);
