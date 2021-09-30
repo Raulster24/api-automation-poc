@@ -6,9 +6,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import utilities.GenerateAuthToken;
 
-import static steps.Appointments.Then.ThenAppointmentShouldBeFetchedSuccessfully;
-import static steps.Appointments.When.WhenICallTheGetAllAppointmentEndPoint;
-import static steps.Appointments.When.WhenICallTheGetAppointmentByIdEndPoint;
+import static steps.Appointments.Then.*;
+import static steps.Appointments.When.*;
 import static steps.Base.accessToken;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -25,5 +24,12 @@ public class GetAppointmentById {
     void shouldBeAbleToGetAppointmentByIdSuccessfully() {
         WhenICallTheGetAppointmentByIdEndPoint("api/appointments/2522");
         ThenAppointmentShouldBeFetchedSuccessfully();
+    }
+
+    @Test
+    @DisplayName("Get Appointment By Id Test Cases")
+    void shouldThrowNotFoundErrorOnInvalidId() {
+        WhenICallTheGetAppointmentByIdEndPoint("api/appointments/25222222");
+        ThenItShouldThrowNotFoundErrorCode();
     }
 }
