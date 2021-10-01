@@ -16,7 +16,7 @@ public class RestAssuredExtension {
 
     public RestAssuredExtension(String uri, String accessToken) {
 
-        this.baseUrl = "https://dev.healthy-u.ae/" + uri;
+        this.baseUrl = "https://dev.healthieru.ae/" + uri;
         if(accessToken!= null) {
             authentication = oauth2(accessToken);
             builder.setAuth(authentication);
