@@ -17,8 +17,8 @@ jobs:
       - name: Build with Maven
         run: mvn clean install
 
-      - name: Allure report
-        uses: afiore/action-allure-report@v0.1.0
+      - name: Allure report V2
+        uses: QuintilianoNery/action-allure-report-V2@0.2.0
         with:
           results-dir: allure-results
           report-dir: target/allure-report
