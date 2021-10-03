@@ -1,6 +1,6 @@
 package provider.Country;
 
-import dto.CountryDTO;
+import dto.request.CountryDTO;
 import java.util.function.BiFunction;
 import static builder.CountryRequestBuilder.createCountryRequest;
 

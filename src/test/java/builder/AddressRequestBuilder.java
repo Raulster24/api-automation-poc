@@ -1,7 +1,7 @@
 package builder;
 
-import dto.AddressDTO;
-import dto.ServiceProvider;
+import dto.request.AddressDTO;
+import dto.request.ServiceProvider;
 
 import java.util.function.Supplier;
 

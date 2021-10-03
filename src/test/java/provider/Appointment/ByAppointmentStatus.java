@@ -1,7 +1,7 @@
 package provider.Appointment;
 
 import domain.AppointmentStatusEnum;
-import dto.AppointmentDTO;
+import dto.request.AppointmentDTO;
 
 import java.time.Instant;
 import java.util.function.Function;

@@ -1,4 +1,4 @@
-package dto;
+package dto.request;
 
 import domain.AppointmentStatusEnum;
 import domain.AppointmentTypeEnum;
@@ -10,6 +10,7 @@ import java.time.Instant;
 @Builder
 @Setter
 public class AppointmentDTO {
+    public Integer id;
     public Integer doctorId;
     public AppointmentTypeEnum type;
     public AppointmentStatusEnum status;

@@ -1,6 +1,6 @@
 package builder;
 
-import dto.CountryDTO;
+import dto.request.CountryDTO;
 import java.util.function.Supplier;
 
 public class CountryRequestBuilder {

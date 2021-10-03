@@ -1,16 +1,34 @@
 package steps.Appointments;
 
 import domain.AppointmentStatusEnum;
-import dto.AppointmentDTO;
+import dto.request.AppointmentDTO;
 import steps.Base;
 
 import java.util.function.Function;
+
+import static provider.Appointment.ByAppointmentStatus.createRequestByAppointmentStatus;
+import static steps.Appointments.When.WhenICallTheCreateAppointmentEndPoint;
 
 public abstract class Given<T extends Given<T>> extends Base<T> {
 
     public static void GivenIHaveAValidPayloadToCreateAppointment(Function<AppointmentStatusEnum, AppointmentDTO> createRequestByAppointmentStatus, AppointmentStatusEnum statusEnum)
     {
         AppointmentDTO data = createRequestByAppointmentStatus.apply(statusEnum);
+        System.out.println(ConvertToJson(data));
+        requestBody = data;
+
+    }
+
+    public static void GivenIHaveAValidPayloadToUpdateAppointment(AppointmentStatusEnum statusEnum)
+    {
+
+        GivenIHaveAValidPayloadToCreateAppointment(createRequestByAppointmentStatus, AppointmentStatusEnum.AVAILABLE);
+        WhenICallTheCreateAppointmentEndPoint("api/appointments");
+        AppointmentDTO data = createRequestByAppointmentStatus.apply(statusEnum);
+        data.setId(responseObject.body().path("id"));
+        data.setStartTime(responseObject.body().path("startTime"));
+        data.setEndTime(responseObject.body().path("endTime"));
+        data.setRemarks(null);
         System.out.println(ConvertToJson(data));
         requestBody = data;
 

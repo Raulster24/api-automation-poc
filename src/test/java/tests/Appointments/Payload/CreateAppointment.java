@@ -47,6 +47,6 @@ public class CreateAppointment {
     void shouldGiveErrorWithInvalidValues(AppointmentStatusEnum statusType) {
         GivenIHaveAValidPayloadToCreateAppointment(createRequestByAppointmentStatus, statusType);
         WhenICallTheCreateAppointmentEndPoint("api/appointments");
-        ThenItShouldThrowErrorStatusCode();
+        ThenItShouldThrowBadRequestStatusCode();
     }
 }

@@ -1,6 +1,6 @@
 package steps.Country;
 
-import dto.CountryDTO;
+import dto.request.CountryDTO;
 import steps.Base;
 
 import java.util.function.BiFunction;
