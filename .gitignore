@@ -22,5 +22,6 @@ buildNumber.properties
 
 
 #allure results
+/allure-results
 
 .DS_Store

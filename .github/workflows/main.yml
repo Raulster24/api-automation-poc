@@ -18,6 +18,7 @@ jobs:
         run: mvn clean install
       - uses: afiore/action-allure-report@v0.1.0
       - name: Allure report
+        run: mvn allure:report
         with:
           results-dir: /allure-results
           report-dir: /target/allure-reports
