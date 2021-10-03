@@ -15,7 +15,7 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
       - name: Build with Maven
-        run: mvn clean install
+        run: mvn clean install allure:report
 
       - name: Allure report V2
         uses: QuintilianoNery/action-allure-report-V2@0.2.0
