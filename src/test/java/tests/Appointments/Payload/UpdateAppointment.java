@@ -10,6 +10,7 @@ import utilities.GenerateAuthToken;
 
 import static steps.Appointments.Given.GivenIHaveAValidPayloadToUpdateAppointment;
 import static steps.Appointments.Then.ThenAppointmentShouldBeUpdatedSuccessfully;
+import static steps.Appointments.Then.ThenItShouldThrowBadRequestStatusCode;
 import static steps.Appointments.When.WhenICallTheUpdateAppointmentEndPoint;
 import static steps.Base.accessToken;
 
@@ -29,5 +30,14 @@ public class UpdateAppointment {
         GivenIHaveAValidPayloadToUpdateAppointment(statusType);
         WhenICallTheUpdateAppointmentEndPoint("api/appointments");;
         ThenAppointmentShouldBeUpdatedSuccessfully(statusType);
+    }
+
+    @ParameterizedTest
+    @EnumSource(value = AppointmentStatusEnum.class, names = {"AVAILABLE"})
+    @DisplayName("Update Appointment Test Cases")
+    void shouldGiveBadRequestWithStatusTypeAvailable(AppointmentStatusEnum statusType) {
+        GivenIHaveAValidPayloadToUpdateAppointment(statusType);
+        WhenICallTheUpdateAppointmentEndPoint("api/appointments");;
+        ThenItShouldThrowBadRequestStatusCode();
     }
 }
