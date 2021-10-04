@@ -23,7 +23,7 @@ public class UpdateAppointment {
     }
 
     @ParameterizedTest
-    @EnumSource(value = AppointmentStatusEnum.class, names = {"UNAVAILABLE"})
+    @EnumSource(value = AppointmentStatusEnum.class, names = {"UNAVAILABLE", "ACCEPTED","PENDING", "CANCELLED_BY_PATIENT", "CANCELLED_BY_DOCTOR", "REJECTED"})
     @DisplayName("Update Appointment Test Cases")
     void shouldGiveSuccessWithValidValues(AppointmentStatusEnum statusType) {
         GivenIHaveAValidPayloadToUpdateAppointment(statusType);

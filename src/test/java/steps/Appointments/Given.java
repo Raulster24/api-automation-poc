@@ -28,8 +28,8 @@ public abstract class Given<T extends Given<T>> extends Base<T> {
         data.setId(responseObject.body().path("id"));
         data.setStartTime(responseObject.body().path("startTime"));
         data.setEndTime(responseObject.body().path("endTime"));
-        data.setRemarks(null);
-        System.out.println(ConvertToJson(data));
+        data.setRemarks("remarks");
+        System.out.println("the request payload"+ ConvertToJson(data));
         requestBody = data;
 
     }

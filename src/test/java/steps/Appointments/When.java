@@ -41,7 +41,7 @@ public abstract class When<T extends steps.Country.When<T>> extends Given<T> {
         System.out.println(accessToken);
         RestAssuredExtension requtil = new RestAssuredExtension(endpoint,accessToken);
         responseObject =requtil.ExecutePutRequest(requestBody);
-        System.out.println("the response body is "+ responseObject.body().asString());
+        System.out.println("the response body is "+ responseObject.getBody().asString());
         System.out.println(responseObject.getStatusCode());
 
     }
