@@ -3,6 +3,7 @@ package steps.Appointments;
 import domain.AppointmentStatusEnum;
 import dto.request.ActivePastAppointmentDTO;
 import dto.request.AppointmentDTO;
+import dto.request.FilterAppointmentDTO;
 import steps.Base;
 
 import java.util.function.Function;
@@ -39,6 +40,12 @@ public abstract class Given<T extends Given<T>> extends Base<T> {
         System.out.println(ConvertToJson(data));
         requestBody = data;
 
+    }
+
+    public static void GivenIHaveValidPayloadToFilterAppointment(Function<AppointmentStatusEnum, FilterAppointmentDTO> createFilterAppointmentRequestByAppointmentStatus, AppointmentStatusEnum statusEnum) {
+        FilterAppointmentDTO data = createFilterAppointmentRequestByAppointmentStatus.apply(statusEnum);
+        System.out.println(ConvertToJson(data));
+        requestBody = data;
     }
 
     protected abstract T getThis();

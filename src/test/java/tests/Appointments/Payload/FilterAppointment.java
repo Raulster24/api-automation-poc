@@ -9,12 +9,14 @@ import org.junit.jupiter.params.provider.EnumSource;
 import utilities.GenerateAuthToken;
 
 import static provider.Appointment.ByAppointmentStatus.createActivePastAppointmentRequestByAppointmentStatus;
+import static provider.Appointment.ByAppointmentStatus.createFilterAppointmentRequestByAppointmentStatus;
 import static steps.Appointments.Given.*;
 import static steps.Appointments.Then.ThenAppointmentShouldBeFetchedSuccessfully;
 import static steps.Appointments.When.WhenICallTheActivePastAppointmentEndPoint;
+import static steps.Appointments.When.WhenICallTheFilterAppointmentEndPoint;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class InvalidAppointment {
+public class FilterAppointment {
 
     @BeforeAll
     void setup() {
@@ -23,11 +25,11 @@ public class InvalidAppointment {
     }
 
     @ParameterizedTest
-    @EnumSource(value = AppointmentStatusEnum.class, names = {"AVAILABLE"})
+    @EnumSource(value = AppointmentStatusEnum.class, names = {"ACCEPTED"})
     @DisplayName("Create Appointment Test Cases")
     void shouldGiveSuccessWithValidValues(AppointmentStatusEnum statusType) {
-        GivenIHaveAValidPayloadToGetActivePastAppointment(createActivePastAppointmentRequestByAppointmentStatus,statusType);
-        WhenICallTheActivePastAppointmentEndPoint("api/appointments/active-past");
+        GivenIHaveValidPayloadToFilterAppointment(createFilterAppointmentRequestByAppointmentStatus, statusType);
+        WhenICallTheFilterAppointmentEndPoint("api/appointments/filter");
         ThenAppointmentShouldBeFetchedSuccessfully();
     }
 }

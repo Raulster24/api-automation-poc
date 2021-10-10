@@ -4,6 +4,7 @@ import domain.AppointmentStatusEnum;
 import domain.AppointmentTypeEnum;
 import dto.request.ActivePastAppointmentDTO;
 import dto.request.AppointmentDTO;
+import dto.request.FilterAppointmentDTO;
 
 import java.util.function.Supplier;
 
@@ -24,6 +25,13 @@ public class AppointmentRequestBuilder {
             .status(AppointmentStatusEnum.AVAILABLE)
             .startTime(null)
             .endTime(null)
+            .build();
+
+    public static Supplier<FilterAppointmentDTO> createFilterAppointmentRequest = () ->
+            FilterAppointmentDTO.builder()
+            .patientId(148)
+            .endTime(null)
+            .status(null)
             .build();
 
 }
