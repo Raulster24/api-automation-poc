@@ -1,6 +1,7 @@
 package steps.Appointments;
 
 import domain.AppointmentStatusEnum;
+import dto.request.ActivePastAppointmentDTO;
 import dto.request.AppointmentDTO;
 import steps.Base;
 
@@ -21,7 +22,6 @@ public abstract class Given<T extends Given<T>> extends Base<T> {
 
     public static void GivenIHaveAValidPayloadToUpdateAppointment(AppointmentStatusEnum statusEnum)
     {
-
         GivenIHaveAValidPayloadToCreateAppointment(createRequestByAppointmentStatus, AppointmentStatusEnum.AVAILABLE);
         WhenICallTheCreateAppointmentEndPoint("api/appointments");
         AppointmentDTO data = createRequestByAppointmentStatus.apply(statusEnum);
@@ -30,6 +30,13 @@ public abstract class Given<T extends Given<T>> extends Base<T> {
         data.setEndTime(responseObject.body().path("endTime"));
         data.setRemarks("remarks");
         System.out.println("the request payload"+ ConvertToJson(data));
+        requestBody = data;
+
+    }
+
+    public static void GivenIHaveAValidPayloadToGetActivePastAppointment(Function<AppointmentStatusEnum, ActivePastAppointmentDTO> createActivePastAppointmentRequestByAppointmentStatus, AppointmentStatusEnum statusEnum){
+        ActivePastAppointmentDTO data = createActivePastAppointmentRequestByAppointmentStatus.apply(statusEnum);
+        System.out.println(ConvertToJson(data));
         requestBody = data;
 
     }
