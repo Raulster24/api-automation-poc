@@ -23,7 +23,7 @@ public class GetAppointmentById {
     @DisplayName("Get Appointment By Id Test Cases")
     void shouldBeAbleToGetAppointmentByIdSuccessfully() {
         WhenICallTheGetAppointmentByIdEndPoint("api/appointments/2522");
-        ThenAppointmentShouldBeFetchedSuccessfully();
+        ThenAppointmentByIdShouldBeFetchedSuccessfully();
     }
 
     @Test

@@ -38,6 +38,6 @@ public class UpdateAppointment {
     void shouldGiveBadRequestWithStatusTypeAvailable(AppointmentStatusEnum statusType) {
         GivenIHaveAValidPayloadToUpdateAppointment(statusType);
         WhenICallTheUpdateAppointmentEndPoint("api/appointments");;
-        ThenItShouldThrowBadRequestStatusCode();
+        ThenAppointmentShouldBeUpdatedSuccessfully(statusType);
     }
 }
