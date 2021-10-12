@@ -1,7 +1,7 @@
 pipeline {
   agent any
   triggers {
-      cron('H/2 * * * *')
+      cron('0 0 * * *')
   }
   stages {
     stage('Test') {
