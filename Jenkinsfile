@@ -20,10 +20,6 @@ pipeline {
         withMaven(jdk: 'JDK 9.0.4', maven: 'maven 3.8.2') {
           sh 'mvn clean install test'
         }
-      }
-    }
-
-      steps {
         script {
                 allure([
                         includeProperties: false,
@@ -33,8 +29,9 @@ pipeline {
                         report: 'target/allure-reports',
                         results: [[path: 'target/allure-results']]
                 ])
-        }
+
       }
+    }
   }
   
   post {
