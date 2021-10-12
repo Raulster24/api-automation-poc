@@ -22,15 +22,14 @@ pipeline {
         }
       }
     }
-    stage('report') {
-        steps {
-          echo 'Generating Report'
-          withMaven(jdk: 'JDK 9.0.4', maven: 'maven 3.8.2') {
-            sh 'mvn allure:serve'
-          }
-        }
-        post {
-          always {
+  }
+
+  post {
+    always {
+            echo 'Generating Report'
+            withMaven(jdk: 'JDK 9.0.4', maven: 'maven 3.8.2') {
+                sh 'mvn allure:serve'
+             }
             script {
                     allure([
                             includeProperties: false,
@@ -42,11 +41,6 @@ pipeline {
                     ])
             }
          }
-        }
-    }
-  }
-
-  post {
     success {
       slackSend channel: 'jenkins-build-status',
       tokenCredentialId: 'slack-login',
