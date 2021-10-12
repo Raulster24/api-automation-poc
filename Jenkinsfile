@@ -20,6 +20,9 @@ pipeline {
         withMaven(jdk: 'JDK 9.0.4', maven: 'maven 3.8.2') {
           sh 'mvn clean install test'
         }
+        withMaven(jdk: 'JDK 9.0.4', maven: 'maven 3.8.2') {
+          sh 'mvn allure:serve'
+        }
         script {
                 allure([
                         includeProperties: false,
