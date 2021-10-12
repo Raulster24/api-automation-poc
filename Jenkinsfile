@@ -22,8 +22,8 @@ pipeline {
         }
       }
     }
-    stage('report') {
-        steps {
+
+      steps {
         script {
                 allure([
                         includeProperties: false,
@@ -34,8 +34,7 @@ pipeline {
                         results: [[path: 'target/allure-results']]
                 ])
         }
-        }
-    }
+      }
   }
   
   post {
