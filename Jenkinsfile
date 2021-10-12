@@ -10,33 +10,42 @@ pipeline {
       }
       steps {
         echo 'Running API automation tests'
-        
+
         slackSend(channel: 'jenkins-build-status', color: 'good', message: "The pipeline healthyuae-api-automation ${GIT_BRANCH} branch commit ${GIT_COMMIT} has started.", notifyCommitters: true, teamDomain: 'g42-healthcare', tokenCredentialId: 'slack-login', username: 'Jenkins')
 
         sh 'echo $JAVA_HOME'
 
         sh 'echo $MAVEN_HOME'
-        
+
         withMaven(jdk: 'JDK 9.0.4', maven: 'maven 3.8.2') {
           sh 'mvn clean install test'
         }
-        withMaven(jdk: 'JDK 9.0.4', maven: 'maven 3.8.2') {
-          sh 'mvn allure:serve'
+      }
+    }
+    stage('report') {
+        steps {
+          echo 'Generating Report'
+          withMaven(jdk: 'JDK 9.0.4', maven: 'maven 3.8.2') {
+            sh 'mvn allure:serve'
+          }
         }
-        script {
-                allure([
-                        includeProperties: false,
-                        jdk: '',
-                        properties: [],
-                        reportBuildPolicy: 'ALWAYS',
-                        report: 'target/allure-reports',
-                        results: [[path: 'target/allure-results']]
-                        ])
+        post {
+          always {
+            script {
+                    allure([
+                            includeProperties: false,
+                            jdk: '',
+                            properties: [],
+                            reportBuildPolicy: 'ALWAYS',
+                            report: 'target/allure-reports',
+                            results: [[path: 'target/allure-results']]
+                    ])
+            }
+         }
         }
-       }
     }
   }
-  
+
   post {
     success {
       slackSend channel: 'jenkins-build-status',
