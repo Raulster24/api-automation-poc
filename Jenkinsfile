@@ -27,9 +27,6 @@ pipeline {
   post {
     always {
             echo 'Generating Report'
-            withMaven(jdk: 'JDK 9.0.4', maven: 'maven 3.8.2') {
-                sh 'mvn allure:serve'
-             }
             script {
                     allure([
                             includeProperties: false,
@@ -37,7 +34,7 @@ pipeline {
                             properties: [],
                             reportBuildPolicy: 'ALWAYS',
                             report: 'target/allure-reports',
-                            results: [[path: 'target/allure-results']]
+                            results: [[path: 'allure-results']]
                     ])
             }
          }
