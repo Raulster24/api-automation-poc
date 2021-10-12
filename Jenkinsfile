@@ -22,6 +22,20 @@ pipeline {
         }
       }
     }
+    stage('report') {
+        steps {
+        script {
+                allure([
+                        includeProperties: false,
+                        jdk: '',
+                        properties: [],
+                        reportBuildPolicy: 'ALWAYS',
+                        report: 'target/allure-reports'
+                        results: [[path: 'target/allure-results']]
+                ])
+        }
+        }
+    }
   }
   
   post {
