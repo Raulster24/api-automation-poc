@@ -28,9 +28,9 @@ pipeline {
                         reportBuildPolicy: 'ALWAYS',
                         report: 'target/allure-reports',
                         results: [[path: 'target/allure-results']]
-                ])
-
-      }
+                        ])
+        }
+       }
     }
   }
   
