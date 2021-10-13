@@ -26,7 +26,7 @@ pipeline {
 
   post {
     always {
-            echo 'Generating Report'
+            echo 'Generating Allure Report'
             script {
                     allure([
                             includeProperties: false,
@@ -44,7 +44,7 @@ pipeline {
       teamDomain: 'g42-healthcare',
       username: 'Jenkins',
       color: 'good',
-      message: "The pipeline healthyuae-api-automation ${GIT_BRANCH} branch commit ${GIT_COMMIT} completed successfully."
+      message: "The nightly execution of healthyuae automated API test passed successfully. Please look at the allure report in jenkins for more details"
     }
     failure {
       slackSend channel: 'jenkins-build-status',
@@ -52,7 +52,7 @@ pipeline {
       teamDomain: 'g42-healthcare',
       username: 'Jenkins',
       color: 'danger',
-      message: "The pipeline healthyuae-api-automation ${GIT_BRANCH} branch commit ${GIT_COMMIT} failed."
+      message: "The nightly execution of healthyuae automated API test cases failed. Please look at the allure report in jenkins for more details"
     }
   }
 }
