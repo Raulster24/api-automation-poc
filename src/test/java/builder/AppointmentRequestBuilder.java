@@ -5,6 +5,7 @@ import domain.AppointmentTypeEnum;
 import dto.request.ActivePastAppointmentDTO;
 import dto.request.AppointmentDTO;
 import dto.request.FilterAppointmentDTO;
+import dto.request.InvalidAppointmentDTO;
 
 import java.util.function.Supplier;
 
@@ -32,6 +33,13 @@ public class AppointmentRequestBuilder {
             .patientId(148)
             .endTime(null)
             .status(null)
+            .build();
+
+    public static Supplier<InvalidAppointmentDTO> createInvalidAppointmentRequest = () ->
+            InvalidAppointmentDTO.builder()
+            .doctorId(88)
+            .endTime(null)
+            .startTime(null)
             .build();
 
 }

@@ -4,10 +4,13 @@ import domain.AppointmentStatusEnum;
 import dto.request.ActivePastAppointmentDTO;
 import dto.request.AppointmentDTO;
 import dto.request.FilterAppointmentDTO;
+import dto.request.InvalidAppointmentDTO;
 import steps.Base;
 
+import java.time.LocalDate;
 import java.util.function.Function;
 
+import static builder.AppointmentRequestBuilder.createInvalidAppointmentRequest;
 import static provider.Appointment.ByAppointmentStatus.createRequestByAppointmentStatus;
 import static steps.Appointments.When.WhenICallTheCreateAppointmentEndPoint;
 
@@ -44,6 +47,15 @@ public abstract class Given<T extends Given<T>> extends Base<T> {
 
     public static void GivenIHaveValidPayloadToFilterAppointment(Function<AppointmentStatusEnum, FilterAppointmentDTO> createFilterAppointmentRequestByAppointmentStatus, AppointmentStatusEnum statusEnum) {
         FilterAppointmentDTO data = createFilterAppointmentRequestByAppointmentStatus.apply(statusEnum);
+        System.out.println(ConvertToJson(data));
+        requestBody = data;
+    }
+
+    public static void GivenIHaveValidPayloadToInvalidAppointment() {
+        InvalidAppointmentDTO data = createInvalidAppointmentRequest.get();
+        data.setDoctorId(88);
+        data.setEndTime(LocalDate.now().plusDays(21).toString() + "T19:59:59.000Z");
+        data.setStartTime(LocalDate.now().minusDays(1).toString() + "T20:00:00.000Z");
         System.out.println(ConvertToJson(data));
         requestBody = data;
     }
