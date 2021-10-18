@@ -24,7 +24,7 @@ public class ActivePastAppointment {
 
     @ParameterizedTest
     @EnumSource(value = AppointmentStatusEnum.class, names = {"AVAILABLE"})
-    @DisplayName("Create Appointment Test Cases")
+    @DisplayName("Active Past Appointment Endpoint Test Cases")
     void shouldGiveSuccessWithValidValues(AppointmentStatusEnum statusType) {
         GivenIHaveAValidPayloadToGetActivePastAppointment(createActivePastAppointmentRequestByAppointmentStatus,statusType);
         WhenICallTheActivePastAppointmentEndPoint("api/appointments/active-past");

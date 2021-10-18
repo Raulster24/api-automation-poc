@@ -26,7 +26,7 @@ public class FilterAppointment {
 
     @ParameterizedTest
     @EnumSource(value = AppointmentStatusEnum.class, names = {"ACCEPTED"})
-    @DisplayName("Create Appointment Test Cases")
+    @DisplayName("Filter Appointment Endpoint Test Cases")
     void shouldGiveSuccessWithValidValues(AppointmentStatusEnum statusType) {
         GivenIHaveValidPayloadToFilterAppointment(createFilterAppointmentRequestByAppointmentStatus, statusType);
         WhenICallTheFilterAppointmentEndPoint("api/appointments/filter");

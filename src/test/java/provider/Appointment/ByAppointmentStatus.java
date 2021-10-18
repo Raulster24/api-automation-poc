@@ -25,7 +25,7 @@ public class ByAppointmentStatus {
         data.setEndTime(LocalDate.now().plusDays(1).toString() + "T19:59:59.000Z");
         data.setStartTime(LocalDate.now().toString() + "T20:00:00.000Z");
         data.setStatus(AppointmentStatus);
-        data.setDoctorId(164);
+        data.setDoctorId(84);
         return data;
     };
 

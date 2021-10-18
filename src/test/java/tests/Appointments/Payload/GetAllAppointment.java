@@ -20,7 +20,7 @@ public class GetAllAppointment {
     }
 
     @Test
-    @DisplayName("Get All Appointments Test Cases")
+    @DisplayName("Get All Appointments Endpoint Test Cases")
     void shouldBeAbleToGetAppointmentsSuccessfully() {
         WhenICallTheGetAllAppointmentEndPoint("api/appointments");
         ThenAppointmentShouldBeFetchedSuccessfully();
