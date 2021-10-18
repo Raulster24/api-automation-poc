@@ -5,6 +5,7 @@ import dto.request.ActivePastAppointmentDTO;
 import dto.request.AppointmentDTO;
 import dto.request.FilterAppointmentDTO;
 import dto.request.InvalidAppointmentDTO;
+import lombok.SneakyThrows;
 import steps.Base;
 
 import java.time.LocalDate;
@@ -24,12 +25,14 @@ public abstract class Given<T extends Given<T>> extends Base<T> {
 
     }
 
+    @SneakyThrows
     public static void GivenIHaveAValidPayloadToUpdateAppointment(AppointmentStatusEnum statusEnum)
     {
         GivenIHaveAValidPayloadToCreateAppointment(createRequestByAppointmentStatus, AppointmentStatusEnum.AVAILABLE);
         WhenICallTheCreateAppointmentEndPoint("api/appointments");
         AppointmentDTO data = createRequestByAppointmentStatus.apply(statusEnum);
         data.setId(responseObject.body().path("id"));
+        Thread.sleep(3000);
         data.setStartTime(responseObject.body().path("startTime"));
         data.setEndTime(responseObject.body().path("endTime"));
         data.setRemarks("remarks");
