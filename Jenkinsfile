@@ -45,6 +45,9 @@ pipeline {
       username: 'Jenkins',
       color: 'good',
       message: "The nightly execution of healthyuae automated API test passed successfully. Please look at the allure report in jenkins for more details"
+      mail to: 'rahul.srivastava@g42.ai',
+                   subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
+                   body: "Something is wrong with ${env.BUILD_URL}"
     }
     failure {
       slackSend channel: 'jenkins-build-status',
