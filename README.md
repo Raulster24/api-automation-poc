@@ -1,6 +1,6 @@
-# healthyu-api-automation
+# api-automation-poc
 
-API test automation repository for HealthyU project 
+API test automation repository for testing a doctor appointment booking app 
 
 
 ## How to setup and run?
